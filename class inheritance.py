@@ -7,23 +7,34 @@
 
 '''
 
+class Shape:
+    def shape_type(self):
+        return "Geometric shape"
 
-class Breed:
-    def __init__(self, breed):
-        self.breed = breed
+class Color:
+    def set_color(self, color):
+        self.color = color
 
 class Size:
-    def __init__(self, size):
+    def set_size(self, size):
         self.size = size
 
-class Age:
-    def __init__(self, age):
-        self.age = age
+class Rectangle(Shape, Color, Size):
+    def __init__(self, color, size):
+        self.set_color(color)
+        self.set_size(size)
 
-class Dog(Breed, Size, Age):
-    def __init__(self, breed, size, age):
-        Breed.__init__(self, breed)
-        Size.__init__(self, size)
-        Age.__init__(self, age)
+    def area(self, width, height):
+        return width * height
+
+rectangle = Rectangle("Yellow", 20)
+
+print(rectangle.shape_type())
+print(rectangle.color)
+print(rectangle.size)
+print(rectangle.area(5, 10))
+
+
+
 
 
